@@ -8,3 +8,4 @@
 -Sign up form
 -Form Validation
 -Firebase Authentication
+-Redux store with userSlice

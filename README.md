@@ -9,3 +9,4 @@
 -Form Validation
 -Firebase Authentication
 -Redux store with userSlice
+-Fetch data from TMDB movies

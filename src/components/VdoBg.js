@@ -1,46 +1,25 @@
-import React, { useEffect, useState } from "react";
-import { API_OPTIONS } from "../utilities/constants";
-//import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+
+import { useSelector } from "react-redux";
+
+import useMovieTrailer from "../hooks/useMovieTrailer";
 
 
-const VdoBg = (movieID) => {
+const VdoBg = ({movieID}) => {
 
- //const trailerVideo = useSelector(store => store.movies?.trailerVdo)
- //const dispatch = useDispatch();
- const [trailerID, settrailerID] = useState(null);
+ const trailerVdo = useSelector((store) => store.movie?.trailerVdo);
+ useMovieTrailer(movieID);
 
-  const getMovieVdos = async () => {
-    const data = await fetch(
-      "https://api.themoviedb.org/3/movie/787699/videos?language=en-US",
-      API_OPTIONS
-    );
-
-    const json = await data.json();
-    console.log(json);
-
-    const filterVdo = json.results.filter(
-      (video) => video.name == "Official Trailer"
-    );
-    const trailer = filterVdo.length ? filterVdo[0] : json.results[0];
-    console.log(trailer);
-    //dispatch(addTrailerVdo(trailer));
-    settrailerID(trailer.key);
-  };
-
-  useEffect(() => {
-    getMovieVdos();
-  }, []);
 
   return (
-    <div>
-      <iframe
-        width="560"
-        height="315"
-        src={"https://www.youtube.com/embed/"+trailerID}
+    <div className="w-screen">
+      <iframe className="w-screen aspect-video"
+        src={"https://www.youtube.com/embed/"+trailerVdo?.key+"?&autoplay=1&mute=1"}
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 
       ></iframe>
+      
     </div>
   );
 };

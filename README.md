@@ -10,3 +10,4 @@
 -Firebase Authentication
 -Redux store with userSlice
 -Fetch data from TMDB movies
+-Embedded Youtube video

@@ -47,9 +47,9 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="pt-[10%] flex justify-center">
+    <div className="pt-[40%] md:pt-[10%] flex justify-center">
       <form
-        className="bg-black w-1/2 grid grid-cols-12 rounded-lg"
+        className="w-full md:w-1/2 grid grid-cols-12 rounded-lg bg-black"
         onSubmit={(e) => e.preventDefault()}
       >
         <input
